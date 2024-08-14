@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    restart: always
+    image: postgres:13
+    container_name: postgres-barbershop
+    environment:
+      POSTGRES_USER: barbershop
+      POSTGRES_PASSWORD: barbershop
+      POSTGRES_DB: barbershop-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
